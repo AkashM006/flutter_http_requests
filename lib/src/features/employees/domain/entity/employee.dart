@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class Employee extends Equatable {
+class EmployeeEntity extends Equatable {
   final int? id;
   final String? name;
   final int? age;
   final int? salary;
 
-  const Employee({
+  const EmployeeEntity({
     this.id,
     this.age,
     this.name,
