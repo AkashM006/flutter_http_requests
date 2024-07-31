@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:http_requests/src/constants/settings.dart';
-import 'package:http_requests/src/constants/theme.dart';
+import 'package:http_requests/src/core/constants/settings.dart';
+import 'package:http_requests/src/core/constants/theme.dart';
 import 'package:http_requests/src/routing/router.dart';
 
 class App extends StatelessWidget {

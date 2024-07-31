@@ -1,4 +1,4 @@
-import 'package:http_requests/src/constants/constants.dart';
+import 'package:http_requests/src/core/constants/constants.dart';
 import 'package:http_requests/src/features/employees/data/models/employee.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
