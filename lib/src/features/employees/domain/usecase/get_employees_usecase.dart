@@ -20,8 +20,16 @@ class GetEmployeesUsecase
 }
 
 @riverpod
-GetEmployeesUsecase getEmployeesUsecase(GetEmployeesUsecaseRef ref) {
+Future<List<EmployeeEntity>> getEmployeesUsecase(
+  GetEmployeesUsecaseRef ref,
+) async {
   final employeeRepository = ref.watch(employeeRepositoryProvider);
 
-  return GetEmployeesUsecase(employeeRepository);
+  final employeesResult = await GetEmployeesUsecase(employeeRepository)();
+
+  if (employeesResult is DataSuccess) return employeesResult.data!;
+
+  final error = employeesResult as DataFailed;
+
+  throw error.data;
 }

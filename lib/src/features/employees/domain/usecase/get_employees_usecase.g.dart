@@ -7,12 +7,12 @@ part of 'get_employees_usecase.dart';
 // **************************************************************************
 
 String _$getEmployeesUsecaseHash() =>
-    r'ee407043c97542479d7066c4d1f2fd52069ddb5d';
+    r'c7080442c5f6527e60b76a35abb334c2ce458f38';
 
 /// See also [getEmployeesUsecase].
 @ProviderFor(getEmployeesUsecase)
 final getEmployeesUsecaseProvider =
-    AutoDisposeProvider<GetEmployeesUsecase>.internal(
+    AutoDisposeFutureProvider<List<EmployeeEntity>>.internal(
   getEmployeesUsecase,
   name: r'getEmployeesUsecaseProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,7 @@ final getEmployeesUsecaseProvider =
   allTransitiveDependencies: null,
 );
 
-typedef GetEmployeesUsecaseRef = AutoDisposeProviderRef<GetEmployeesUsecase>;
+typedef GetEmployeesUsecaseRef
+    = AutoDisposeFutureProviderRef<List<EmployeeEntity>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

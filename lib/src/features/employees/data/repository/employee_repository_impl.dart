@@ -19,7 +19,7 @@ class EmployeeRepositoryImpl extends EmployeeRepository {
     try {
       final httpResponse = await _employeeApiService.getEmployees();
       if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.data);
+        return DataSuccess(httpResponse.data.users);
       }
 
       return DataFailed(

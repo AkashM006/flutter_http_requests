@@ -21,13 +21,13 @@ class _EmployeeApiService implements EmployeeApiService {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<List<EmployeeModel>>> getEmployees() async {
+  Future<HttpResponse<EmployeeListRequestModel>> getEmployees() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<EmployeeModel>>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<EmployeeListRequestModel>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,9 +43,7 @@ class _EmployeeApiService implements EmployeeApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
-        .map((dynamic i) => EmployeeModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = EmployeeListRequestModel.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

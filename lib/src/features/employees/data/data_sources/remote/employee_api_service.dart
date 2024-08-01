@@ -12,7 +12,7 @@ abstract class EmployeeApiService {
   factory EmployeeApiService(Dio dio) = _EmployeeApiService;
 
   @GET('/employees')
-  Future<HttpResponse<List<EmployeeModel>>> getEmployees();
+  Future<HttpResponse<EmployeeListRequestModel>> getEmployees();
 }
 
 @riverpod
