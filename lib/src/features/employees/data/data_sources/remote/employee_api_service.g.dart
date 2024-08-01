@@ -80,3 +80,27 @@ class _EmployeeApiService implements EmployeeApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$employeeApiServiceHash() =>
+    r'96004413c4d0380cee4ad7fcbb62ad380c97ff74';
+
+/// See also [employeeApiService].
+@ProviderFor(employeeApiService)
+final employeeApiServiceProvider =
+    AutoDisposeProvider<EmployeeApiService>.internal(
+  employeeApiService,
+  name: r'employeeApiServiceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$employeeApiServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef EmployeeApiServiceRef = AutoDisposeProviderRef<EmployeeApiService>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

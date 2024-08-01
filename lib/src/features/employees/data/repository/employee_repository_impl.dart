@@ -5,6 +5,9 @@ import 'package:http_requests/src/features/employees/data/data_sources/remote/em
 import 'package:http_requests/src/features/employees/data/models/employee.dart';
 import 'package:http_requests/src/features/employees/domain/repository/employee_repository.dart';
 import 'package:http_requests/src/core/utils/data_state.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'employee_repository_impl.g.dart';
 
 class EmployeeRepositoryImpl extends EmployeeRepository {
   final EmployeeApiService _employeeApiService;
@@ -31,4 +34,11 @@ class EmployeeRepositoryImpl extends EmployeeRepository {
       return DataFailed(e);
     }
   }
+}
+
+@riverpod
+EmployeeRepository employeeRepository(EmployeeRepositoryRef ref) {
+  final employeeApiService = ref.watch(employeeApiServiceProvider);
+
+  return EmployeeRepositoryImpl(employeeApiService);
 }
