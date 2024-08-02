@@ -9,17 +9,17 @@ part of 'employee.dart';
 EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) =>
     EmployeeModel(
       (json['id'] as num?)?.toInt(),
-      (json['employee_age'] as num?)?.toInt(),
-      json['employee_name'] as String?,
-      (json['employee_salary'] as num?)?.toInt(),
+      json['first_name'] as String?,
+      json['last_name'] as String?,
+      json['email'] as String?,
     );
 
 Map<String, dynamic> _$EmployeeModelToJson(EmployeeModel instance) =>
     <String, dynamic>{
       'id': instance.empId,
-      'employee_name': instance.empName,
-      'employee_salary': instance.empSalary,
-      'employee_age': instance.empAge,
+      'first_name': instance.empName,
+      'last_name': instance.empLastName,
+      'email': instance.empEmail,
     };
 
 EmployeeListRequestModel _$EmployeeListRequestModelFromJson(

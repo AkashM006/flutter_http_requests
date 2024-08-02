@@ -13,7 +13,7 @@ class _EmployeeApiService implements EmployeeApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://dummy.restapiexample.com/api/v1';
+    baseUrl ??= 'https://reqres.in/api';
   }
 
   final Dio _dio;
@@ -21,7 +21,7 @@ class _EmployeeApiService implements EmployeeApiService {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<EmployeeListRequestModel>> getEmployees() async {
+  Future<HttpResponse<EmployeeListRequestModel>> getEmployees(int page) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -34,7 +34,7 @@ class _EmployeeApiService implements EmployeeApiService {
     )
             .compose(
               _dio.options,
-              '/employees',
+              '/users',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -49,7 +49,7 @@ class _EmployeeApiService implements EmployeeApiService {
   }
 
   @override
-  Future<HttpResponse<EmployeeRequestModel>> getEmployee(String id) async {
+  Future<HttpResponse<EmployeeRequestModel>> getEmployee(int id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -62,7 +62,7 @@ class _EmployeeApiService implements EmployeeApiService {
     )
             .compose(
               _dio.options,
-              '/employee/${id}',
+              '/users/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

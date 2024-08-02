@@ -18,13 +18,6 @@ class EmployeeDetailBody extends StatelessWidget {
             employee.name ?? "Anonymous",
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Age: ${employee.age}",
-            style: Theme.of(context).textTheme.titleLarge,
-          )
         ],
       ),
     );

@@ -3,18 +3,23 @@ import 'package:equatable/equatable.dart';
 class EmployeeEntity extends Equatable {
   final int? id;
   final String? name;
-  final int? age;
-  final int? salary;
+  final String? lastName;
+  final String? email;
 
   const EmployeeEntity({
     this.id,
-    this.age,
     this.name,
-    this.salary,
+    this.email,
+    this.lastName,
   });
 
   @override
   List<Object?> get props {
-    return [id, name, age, salary];
+    return [
+      id,
+      name,
+      email,
+      lastName,
+    ];
   }
 }

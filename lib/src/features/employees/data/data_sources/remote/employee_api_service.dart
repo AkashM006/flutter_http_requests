@@ -11,11 +11,12 @@ part 'employee_api_service.g.dart';
 abstract class EmployeeApiService {
   factory EmployeeApiService(Dio dio) = _EmployeeApiService;
 
-  @GET('/employees')
-  Future<HttpResponse<EmployeeListRequestModel>> getEmployees();
+  @GET('/users')
+  Future<HttpResponse<EmployeeListRequestModel>> getEmployees(
+      @Path('page') int page);
 
-  @GET('/employee/{id}')
-  Future<HttpResponse<EmployeeRequestModel>> getEmployee(@Path('id') String id);
+  @GET('/users/{id}')
+  Future<HttpResponse<EmployeeRequestModel>> getEmployee(@Path('id') int id);
 }
 
 @riverpod

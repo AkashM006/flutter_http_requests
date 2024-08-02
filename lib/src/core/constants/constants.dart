@@ -1,1 +1,1 @@
-const apiBaseUrl = "https://dummy.restapiexample.com/api/v1";
+const apiBaseUrl = "https://reqres.in/api";

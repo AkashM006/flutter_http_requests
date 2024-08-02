@@ -7,23 +7,23 @@ part 'employee.g.dart';
 class EmployeeModel extends EmployeeEntity {
   @JsonKey(name: 'id')
   final int? empId;
-  @JsonKey(name: 'employee_name')
+  @JsonKey(name: 'first_name')
   final String? empName;
-  @JsonKey(name: 'employee_salary')
-  final int? empSalary;
-  @JsonKey(name: 'employee_age')
-  final int? empAge;
+  @JsonKey(name: 'last_name')
+  final String? empLastName;
+  @JsonKey(name: 'email')
+  final String? empEmail;
 
   const EmployeeModel(
     this.empId,
-    this.empAge,
     this.empName,
-    this.empSalary,
+    this.empLastName,
+    this.empEmail,
   ) : super(
           id: empId,
           name: empName,
-          salary: empSalary,
-          age: empAge,
+          email: empEmail,
+          lastName: empLastName,
         );
 
   factory EmployeeModel.fromJson(Map<String, dynamic> json) =>

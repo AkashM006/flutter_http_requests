@@ -18,7 +18,7 @@ class EmployeeRepositoryImpl extends EmployeeRepository {
   @override
   Future<DataState<List<EmployeeModel>>> getEmployees() async {
     try {
-      final httpResponse = await _employeeApiService.getEmployees();
+      final httpResponse = await _employeeApiService.getEmployees(1);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data.users);
       }
@@ -39,7 +39,7 @@ class EmployeeRepositoryImpl extends EmployeeRepository {
   @override
   Future<DataState<EmployeeEntity>> getEmployee(int id) async {
     try {
-      final httpResponse = await _employeeApiService.getEmployee(id.toString());
+      final httpResponse = await _employeeApiService.getEmployee(id);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data.user);
       }

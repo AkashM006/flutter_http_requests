@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:http_requests/src/features/employees/presentation/employees_list/employee_list_provider.dart';
-import 'package:http_requests/src/routing/router.dart';
+import 'package:http_requests/src/features/employees/presentation/employees_list/widgets/employee_list_item.dart';
 
 class EmployeesListScreen extends ConsumerWidget {
   const EmployeesListScreen({super.key});
@@ -11,29 +10,14 @@ class EmployeesListScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final employees = ref.watch(employeeListProvider);
 
-    void onUserTouch(int? id) {
-      context.pushNamed(
-        PAGES.detail.name,
-        queryParameters: {
-          'id': id.toString(),
-        },
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Employees"),
       ),
       body: employees.when(
         data: (data) => ListView.builder(
-          itemBuilder: (context, index) => ListTile(
-            onTap: () => onUserTouch(data[index].id),
-            title: Text(
-              data[index].name ?? "Anonymous",
-            ),
-            subtitle: Text(
-              data[index].age?.toString() ?? "",
-            ),
+          itemBuilder: (context, index) => EmployeeListItem(
+            employee: data[index],
           ),
           itemCount: data.length,
         ),
