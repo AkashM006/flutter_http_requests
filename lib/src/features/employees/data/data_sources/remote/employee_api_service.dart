@@ -13,6 +13,9 @@ abstract class EmployeeApiService {
 
   @GET('/employees')
   Future<HttpResponse<EmployeeListRequestModel>> getEmployees();
+
+  @GET('/employee/{id}')
+  Future<HttpResponse<EmployeeRequestModel>> getEmployee(@Path('id') String id);
 }
 
 @riverpod

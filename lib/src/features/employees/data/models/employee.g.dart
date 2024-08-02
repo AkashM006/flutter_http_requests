@@ -35,3 +35,15 @@ Map<String, dynamic> _$EmployeeListRequestModelToJson(
     <String, dynamic>{
       'data': instance.users,
     };
+
+EmployeeRequestModel _$EmployeeRequestModelFromJson(
+        Map<String, dynamic> json) =>
+    EmployeeRequestModel(
+      user: EmployeeModel.fromJson(json['data'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$EmployeeRequestModelToJson(
+        EmployeeRequestModel instance) =>
+    <String, dynamic>{
+      'data': instance.user,
+    };

@@ -1,24 +1,23 @@
 import 'package:http_requests/src/core/utils/data_state.dart';
 import 'package:http_requests/src/features/employees/data/repository/employee_repository_impl.dart';
 import 'package:http_requests/src/features/employees/domain/entity/employee.dart';
-import 'package:http_requests/src/features/employees/domain/usecase/get_employees_usecase.dart';
+import 'package:http_requests/src/features/employees/domain/usecase/get_employee_usecase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'employee_list_provider.g.dart';
+part 'employee_detail_provider.g.dart';
 
 @riverpod
-Future<List<EmployeeEntity>> employeeList(
-  EmployeeListRef ref,
-) async {
+Future<EmployeeEntity> employeeDetail(EmployeeDetailRef ref, int id) async {
   final employeeRepository = ref.watch(employeeRepositoryProvider);
 
-  final employeesResult = await GetEmployeesUsecase(employeeRepository)();
+  final employeeResult =
+      await GetEmployeeUsecase(employeeRepository)(params: id);
 
-  if (employeesResult is DataSuccess) return employeesResult.data!;
+  if (employeeResult is DataSuccess) return employeeResult.data!;
 
-  final error = employeesResult as DataFailed;
+  final error = employeeResult as DataFailed;
 
   print("Error: ${error.error}");
 
-  throw error.data;
+  throw error;
 }

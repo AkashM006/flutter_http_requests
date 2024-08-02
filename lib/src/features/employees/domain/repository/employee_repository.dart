@@ -3,4 +3,5 @@ import 'package:http_requests/src/core/utils/data_state.dart';
 
 abstract class EmployeeRepository {
   Future<DataState<List<EmployeeEntity>>> getEmployees();
+  Future<DataState<EmployeeEntity>> getEmployee(int id);
 }

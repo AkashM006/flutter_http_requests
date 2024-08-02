@@ -46,3 +46,16 @@ class EmployeeListRequestModel {
 
   Map<String, dynamic> toJson() => _$EmployeeListRequestModelToJson(this);
 }
+
+@JsonSerializable()
+class EmployeeRequestModel {
+  @JsonKey(name: 'data')
+  final EmployeeModel user;
+
+  const EmployeeRequestModel({required this.user});
+
+  factory EmployeeRequestModel.fromJson(Map<String, dynamic> json) =>
+      _$EmployeeRequestModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EmployeeRequestModelToJson(this);
+}
