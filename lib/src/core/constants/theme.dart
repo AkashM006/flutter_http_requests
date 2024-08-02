@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http_requests/src/constants/settings.dart';
+import 'package:http_requests/src/core/constants/settings.dart';
 
 final appLightTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
